@@ -12,8 +12,7 @@
 // To declare projects as part of a multi-project build use the 'include' method
 include 'th-service'
 include 'th-api'
-include 'th-entity'
-include 'th-mapping'
+include 'th-metadata'
 
 
 rootProject.name = 'thingshub'
