@@ -36,19 +36,6 @@ subprojects { subproj ->
         mavenLocal()
     }
     
-    def env=System.properties['profile']?:"local"
-    
-	println "src/main/resources/env/${env}"
-	        		
-    sourceSets {
-	    main {
-	        resources {
-	            srcDirs(["src/main/resources","src/main/resources/env/${env}"])
-	            exclude "src/main/resources/env/"
-	        }
-	    }
-	}
-
 
     dependencies {
         compile 'org.slf4j:slf4j-api:1.7.21'
@@ -91,6 +78,20 @@ project(':th-api') {
 
 	apply plugin: 'war'
 	apply plugin: 'org.springframework.boot'
+	
+	def env=System.properties['profile']?:"local"
+    
+	println "src/main/resources/env/${env}"
+	
+	sourceSets {
+	    main {
+	        resources {
+                // srcDirs "src/main/env/${env}"
+	            srcDirs(["src/main/resources","src/main/env/${env}"])
+	            // exclude "src/main/resources/env/"
+	        }
+	    }
+	}
 
     dependencies {
         compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")

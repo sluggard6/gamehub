@@ -7,4 +7,4 @@ bin
 build
 out
 *.iml
-th-api/src/main/resources/env/local
+th-api/src/main/env/local
