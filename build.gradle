@@ -14,7 +14,7 @@ allprojects {
     
     group = 'xyz.sluggard'
     version = '1.0-SNAPSHOT'
-    
+
 }
 
 subprojects { subproj ->
@@ -27,13 +27,18 @@ subprojects { subproj ->
 	sourceCompatibility = 1.8
 	targetCompatibility = 1.8
     
+    compileJava.options.encoding = 'UTF-8'
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
     
     repositories {
-        maven { url "http://192.168.1.31:8081/nexus/content/groups/public" }
+        mavenLocal()
         maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         jcenter()
         mavenCentral()
-        mavenLocal()
+        maven { url "http://192.168.1.31:8081/nexus/content/groups/public" }
     }
     
 
@@ -86,9 +91,9 @@ project(':th-api') {
 	sourceSets {
 	    main {
 	        resources {
-                // srcDirs "src/main/env/${env}"
-	            srcDirs(["src/main/resources","src/main/env/${env}"])
-	            // exclude "src/main/resources/env/"
+                srcDirs "src/main/env/${env}"
+	            // srcDirs(["src/main/resources","src/main/env/${env}"])
+	            exclude "src/main/resources"
 	        }
 	    }
 	}

@@ -8,3 +8,4 @@ build
 out
 *.iml
 th-api/src/main/env/local
+*.vs
