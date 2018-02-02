@@ -1,10 +1,10 @@
 spring:  
   datasource:  
-    url : jdbc:mysql://106.75.66.135:3306/thingshub
-    username : admin
-    password : "admin$mfwifi#2016!"
+    url : jdbc:mysql://local:3306/thingshub
+    username : root
+    password : "123456"
     driverClassName : com.mysql.jdbc.Driver
-    
+    driverClassName : com.mysql.jdbc.Driver  
     
 mybatis:
   config-locations: "classpath*:mybatis-config.xml"
